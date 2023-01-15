@@ -12,6 +12,16 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/testing-entity" />
+        <option name="gradleHome" value="D:/program/gradle-7.6" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/testing-entity" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
