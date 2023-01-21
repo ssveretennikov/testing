@@ -22,8 +22,8 @@ public class PassedTest {
     @JoinColumn(name = DbMeta.passed_test.fld.test_id)
     private Test test;
 
-    @Column(name = DbMeta.passed_test.fld.user)
-    private String user;
+    @Column(name = DbMeta.passed_test.fld.user_name)
+    private String userName;
 
     @Column(name = DbMeta.passed_test.fld.date_start)
     private LocalDateTime dateStart;
