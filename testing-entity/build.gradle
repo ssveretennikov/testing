@@ -4,6 +4,12 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
+ext {
+    mapstructSpringExtensionsVersion = '0.1.2'
+    mapstructVersion = '1.5.3.Final'
+    lombokMapstructBindingVersion = '0.2.0'
+}
+
 group = 'ru.veretennikov.testing'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -24,6 +30,13 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     runtimeOnly 'org.postgresql:postgresql'
+
+//    mapstruct
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    implementation "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
+    implementation "org.mapstruct.extensions.spring:mapstruct-spring-annotations:${mapstructSpringExtensionsVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    annotationProcessor "org.mapstruct.extensions.spring:mapstruct-spring-extensions:${mapstructSpringExtensionsVersion}"
 }
 
 tasks.named('test') {
