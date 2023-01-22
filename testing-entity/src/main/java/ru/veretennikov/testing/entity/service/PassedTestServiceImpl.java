@@ -3,9 +3,9 @@ package ru.veretennikov.testing.entity.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.veretennikov.testing.entity.db.PassedTest;
-import ru.veretennikov.testing.entity.dto.request.PassedTestDTO.Request.PassedTestCreateDTO;
-import ru.veretennikov.testing.entity.dto.request.PassedTestDTO.Request.PassedTestUpdateDTO;
-import ru.veretennikov.testing.entity.dto.request.PassedTestDTO.Response.PassedTestResponseDTO;
+import ru.veretennikov.testing.entity.dto.PassedTestDTO.Request.PassedTestCreateDTO;
+import ru.veretennikov.testing.entity.dto.PassedTestDTO.Request.PassedTestUpdateDTO;
+import ru.veretennikov.testing.entity.dto.PassedTestDTO.Response.PassedTestResponseDTO;
 import ru.veretennikov.testing.entity.mapper.PassedTestDtoEntityMapper;
 import ru.veretennikov.testing.entity.repository.PassedTestRepository;
 
@@ -24,7 +24,7 @@ public class PassedTestServiceImpl implements PassedTestService {
     @Override
     public PassedTestResponseDTO findById(Long id) {
         return repository.findById(id)
-                .map(mapper::toDto)
+                .map(mapper::toDTO)
                 .orElse(null);
     }
 
@@ -32,22 +32,23 @@ public class PassedTestServiceImpl implements PassedTestService {
     public List<PassedTestResponseDTO> findAll() {
         return Stream.ofNullable(repository.findAll())
                 .flatMap(Collection::stream)
-                .map(mapper::toDto)
+                .map(mapper::toDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     public PassedTestResponseDTO create(PassedTestCreateDTO createDTO) {
-        PassedTest answer = mapper.toEntity(createDTO);
-        PassedTest result = repository.save(answer);
-        return mapper.toDto(result);
+        PassedTest passedTest = mapper.toEntity(createDTO);
+        PassedTest result = repository.save(passedTest);
+        return mapper.toDTO(result);
     }
 
     @Override
-    public PassedTestResponseDTO update(PassedTestUpdateDTO updateDTO) {
-        PassedTest answer = mapper.toEntity(updateDTO);
-        PassedTest result = repository.save(answer);
-        return mapper.toDto(result);
+    public PassedTestResponseDTO update(Long id, PassedTestUpdateDTO updateDTO) {
+//        PassedTest passedTest = mapper.toEntity(updateDTO);
+//        PassedTest result = repository.save(passedTest);
+//        return mapper.toDTO(result);
+        return null;        // exception
     }
 
     @Override

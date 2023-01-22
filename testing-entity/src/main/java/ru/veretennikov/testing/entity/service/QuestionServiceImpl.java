@@ -3,9 +3,9 @@ package ru.veretennikov.testing.entity.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.veretennikov.testing.entity.db.Question;
-import ru.veretennikov.testing.entity.dto.request.QuestionDTO.Request.QuestionCreateDTO;
-import ru.veretennikov.testing.entity.dto.request.QuestionDTO.Request.QuestionUpdateDTO;
-import ru.veretennikov.testing.entity.dto.request.QuestionDTO.Response.QuestionResponseDTO;
+import ru.veretennikov.testing.entity.dto.QuestionDTO.Request.QuestionCreateDTO;
+import ru.veretennikov.testing.entity.dto.QuestionDTO.Response.QuestionResponseDTO;
+import ru.veretennikov.testing.entity.dto.QuestionDTO.Request.QuestionUpdateDTO;
 import ru.veretennikov.testing.entity.mapper.QuestionDtoEntityMapper;
 import ru.veretennikov.testing.entity.repository.QuestionRepository;
 
@@ -24,7 +24,7 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public QuestionResponseDTO findById(Long id) {
         return repository.findById(id)
-                .map(mapper::toDto)
+                .map(mapper::toDTO)
                 .orElse(null);
     }
 
@@ -32,22 +32,23 @@ public class QuestionServiceImpl implements QuestionService {
     public List<QuestionResponseDTO> findAll() {
         return Stream.ofNullable(repository.findAll())
                 .flatMap(Collection::stream)
-                .map(mapper::toDto)
+                .map(mapper::toDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     public QuestionResponseDTO create(QuestionCreateDTO createDTO) {
-        Question answer = mapper.toEntity(createDTO);
-        Question result = repository.save(answer);
-        return mapper.toDto(result);
+        Question question = mapper.toEntity(createDTO);
+        Question result = repository.save(question);
+        return mapper.toDTO(result);
     }
 
     @Override
-    public QuestionResponseDTO update(QuestionUpdateDTO updateDTO) {
-        Question answer = mapper.toEntity(updateDTO);
-        Question result = repository.save(answer);
-        return mapper.toDto(result);
+    public QuestionResponseDTO update(Long id, QuestionUpdateDTO updateDTO) {
+//        Question question = mapper.toEntity(updateDTO);
+//        Question result = repository.save(question);
+//        return mapper.toDTO(result);
+        return null;        // exception
     }
 
     @Override

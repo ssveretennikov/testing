@@ -1,34 +1,48 @@
-package ru.veretennikov.testing.entity.dto.request;
+package ru.veretennikov.testing.entity.dto;
 
-import lombok.Value;
+import lombok.Data;
 
 public class AnswerDTO {
 
 //    над методами интерфейсов дописать аннотации валидации, а также документацию
     private interface Id { Long getId(); }
-    private interface Question { ru.veretennikov.testing.entity.db.Question getQuestion(); }
+    private interface QuestionId { Long getQuestionId(); }
     private interface LeftPart { String getLeftPart(); }
     private interface Description { String getDescription(); }
     private interface Correct { Boolean getCorrect(); }
     private interface OrderNumber { Integer getOrderNumber(); }
 
-    private interface FullFieldSet extends AnswerDTO.Id, AnswerDTO.Question, AnswerDTO.LeftPart, AnswerDTO.Description, AnswerDTO.Correct, AnswerDTO.OrderNumber {}
-    private interface FullFieldSetWithoutId extends AnswerDTO.Question, AnswerDTO.LeftPart, AnswerDTO.Description, AnswerDTO.Correct, AnswerDTO.OrderNumber {}
+    private interface FullFieldSet extends
+            AnswerDTO.Id,
+            AnswerDTO.QuestionId,
+            AnswerDTO.LeftPart,
+            AnswerDTO.Description,
+            AnswerDTO.Correct,
+            AnswerDTO.OrderNumber {}
+    private interface FieldSetForCreate extends
+            AnswerDTO.QuestionId,
+            AnswerDTO.LeftPart,
+            AnswerDTO.Description,
+            AnswerDTO.Correct,
+            AnswerDTO.OrderNumber {}
+    private interface FieldSetForUpdate extends
+            AnswerDTO.LeftPart,
+            AnswerDTO.Description,
+            AnswerDTO.Correct,
+            AnswerDTO.OrderNumber {}
 
     public enum Request {;
-        @Value
-        public static class AnswerCreateDTO implements FullFieldSetWithoutId {
-            ru.veretennikov.testing.entity.db.Question question;
+        @Data
+        public static class AnswerCreateDTO implements FieldSetForCreate {
+            Long questionId;
             String leftPart;
             String description;
             Boolean correct;
             Integer orderNumber;
         }
 
-        @Value
-        public static class AnswerUpdateDTO implements FullFieldSet {
-            Long id;
-            ru.veretennikov.testing.entity.db.Question question;
+        @Data
+        public static class AnswerUpdateDTO implements FieldSetForUpdate {
             String leftPart;
             String description;
             Boolean correct;
@@ -37,10 +51,10 @@ public class AnswerDTO {
     }
 
     public enum Response {;
-        @Value
+        @Data
         public static class AnswerResponseDTO implements FullFieldSet {
             Long id;
-            ru.veretennikov.testing.entity.db.Question question;
+            Long questionId;
             String leftPart;
             String description;
             Boolean correct;
@@ -49,4 +63,3 @@ public class AnswerDTO {
     }
 
 }
-

@@ -1,6 +1,6 @@
-package ru.veretennikov.testing.entity.dto.request;
+package ru.veretennikov.testing.entity.dto;
 
-import lombok.Value;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
@@ -8,8 +8,7 @@ public class PassedTestDTO {
 
 //    над методами интерфейсов дописать аннотации валидации, а также документацию
     private interface Id { Long getId(); }
-
-    private interface Test { Test getTest(); }
+    private interface TestId { Long getTestId(); }
     private interface UserName { String getUserName(); }
     private interface DateStart { LocalDateTime getDateStart(); }
     private interface DateEnd { LocalDateTime getDateEnd(); }
@@ -18,15 +17,34 @@ public class PassedTestDTO {
     private interface TotalWeight { int getTotalWeight(); }
     private interface GainedWeight { int getGainedWeight(); }
 
-    private interface FullFieldSet extends PassedTestDTO.Id, PassedTestDTO.Test, PassedTestDTO.UserName, PassedTestDTO.DateStart, PassedTestDTO.DateEnd,
-            PassedTestDTO.TotalQuestion, PassedTestDTO.NumCorrect, PassedTestDTO.TotalWeight, PassedTestDTO.GainedWeight {}
-    private interface FullFieldSetWithoutId extends PassedTestDTO.Test, PassedTestDTO.UserName, PassedTestDTO.DateStart, PassedTestDTO.DateEnd,
-            PassedTestDTO.TotalQuestion, PassedTestDTO.NumCorrect, PassedTestDTO.TotalWeight, PassedTestDTO.GainedWeight {}
+    private interface FullFieldSet extends
+            PassedTestDTO.Id,
+            PassedTestDTO.TestId,
+            PassedTestDTO.UserName,
+            PassedTestDTO.DateStart,
+            PassedTestDTO.DateEnd,
+            PassedTestDTO.TotalQuestion,
+            PassedTestDTO.NumCorrect,
+            PassedTestDTO.TotalWeight,
+            PassedTestDTO.GainedWeight {}
+    private interface FieldSetForCreate extends
+            PassedTestDTO.TestId,
+            PassedTestDTO.UserName,
+            PassedTestDTO.DateStart,
+            PassedTestDTO.DateEnd,
+            PassedTestDTO.TotalQuestion,
+            PassedTestDTO.NumCorrect,
+            PassedTestDTO.TotalWeight,
+            PassedTestDTO.GainedWeight {}
+    private interface FieldSetForUpdate extends
+            PassedTestDTO.UserName,
+            PassedTestDTO.DateStart,
+            PassedTestDTO.DateEnd {}
 
     public enum Request {;
-        @Value
-        public static class PassedTestCreateDTO implements FullFieldSetWithoutId {
-            Test test;
+        @Data
+        public static class PassedTestCreateDTO implements FieldSetForCreate {
+            Long testId;
             String userName;
             LocalDateTime dateStart;
             LocalDateTime dateEnd;
@@ -36,25 +54,19 @@ public class PassedTestDTO {
             int gainedWeight;
         }
 
-        @Value
-        public static class PassedTestUpdateDTO implements FullFieldSet {
-            Long id;
-            Test test;
+        @Data
+        public static class PassedTestUpdateDTO implements FieldSetForUpdate {
             String userName;
             LocalDateTime dateStart;
             LocalDateTime dateEnd;
-            int totalQuestion;
-            int numCorrect;
-            int totalWeight;
-            int gainedWeight;
         }
     }
 
     public enum Response {;
-        @Value
+        @Data
         public static class PassedTestResponseDTO implements FullFieldSet {
             Long id;
-            Test test;
+            Long testId;
             String userName;
             LocalDateTime dateStart;
             LocalDateTime dateEnd;
@@ -66,4 +78,3 @@ public class PassedTestDTO {
     }
 
 }
-

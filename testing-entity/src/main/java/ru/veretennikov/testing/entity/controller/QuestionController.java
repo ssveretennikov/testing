@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.veretennikov.testing.entity.dto.request.QuestionDTO.Request.QuestionCreateDTO;
-import ru.veretennikov.testing.entity.dto.request.QuestionDTO.Request.QuestionUpdateDTO;
-import ru.veretennikov.testing.entity.dto.request.QuestionDTO.Response.QuestionResponseDTO;
+import ru.veretennikov.testing.entity.dto.QuestionDTO.Request.QuestionCreateDTO;
+import ru.veretennikov.testing.entity.dto.QuestionDTO.Response.QuestionResponseDTO;
+import ru.veretennikov.testing.entity.dto.QuestionDTO.Request.QuestionUpdateDTO;
 import ru.veretennikov.testing.entity.service.QuestionService;
 
 import java.util.List;
@@ -34,14 +35,15 @@ public class QuestionController {
         return ResponseEntity.ok(questionService.findAll());
     }
 
-    @PostMapping(value = "question}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "question", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<QuestionResponseDTO> createQuestion(@RequestBody QuestionCreateDTO createDTO) {
         return ResponseEntity.ok(questionService.create(createDTO));
     }
 
-    @PostMapping(value = "question", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<QuestionResponseDTO> updateQuestion(@RequestBody QuestionUpdateDTO updateDTO) {
-        return ResponseEntity.ok(questionService.update(updateDTO));
+    @PutMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<QuestionResponseDTO> updateQuestion(@PathVariable Long id,
+                                                              @RequestBody QuestionUpdateDTO updateDTO) {
+        return ResponseEntity.ok(questionService.update(id, updateDTO));
     }
 
     @DeleteMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

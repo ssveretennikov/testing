@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.veretennikov.testing.entity.dto.request.PassedTestDTO.Request.PassedTestCreateDTO;
-import ru.veretennikov.testing.entity.dto.request.PassedTestDTO.Request.PassedTestUpdateDTO;
-import ru.veretennikov.testing.entity.dto.request.PassedTestDTO.Response.PassedTestResponseDTO;
+import ru.veretennikov.testing.entity.dto.PassedTestDTO.Request.PassedTestCreateDTO;
+import ru.veretennikov.testing.entity.dto.PassedTestDTO.Request.PassedTestUpdateDTO;
+import ru.veretennikov.testing.entity.dto.PassedTestDTO.Response.PassedTestResponseDTO;
 import ru.veretennikov.testing.entity.service.PassedTestService;
 
 import java.util.List;
@@ -34,14 +35,15 @@ public class PassedTestController {
         return ResponseEntity.ok(passedTestService.findAll());
     }
 
-    @PostMapping(value = "passed-test}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "passed-test", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PassedTestResponseDTO> createPassedTest(@RequestBody PassedTestCreateDTO createDTO) {
         return ResponseEntity.ok(passedTestService.create(createDTO));
     }
 
-    @PostMapping(value = "passed-test", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PassedTestResponseDTO> updatePassedTest(@RequestBody PassedTestUpdateDTO updateDTO) {
-        return ResponseEntity.ok(passedTestService.update(updateDTO));
+    @PutMapping(value = "passed-test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PassedTestResponseDTO> updatePassedTest(@PathVariable Long id,
+                                                                  @RequestBody PassedTestUpdateDTO updateDTO) {
+        return ResponseEntity.ok(passedTestService.update(id, updateDTO));
     }
 
     @DeleteMapping(value = "passed-test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

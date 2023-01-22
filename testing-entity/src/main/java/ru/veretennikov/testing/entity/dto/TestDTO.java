@@ -1,6 +1,6 @@
-package ru.veretennikov.testing.entity.dto.request;
+package ru.veretennikov.testing.entity.dto;
 
-import lombok.Value;
+import lombok.Data;
 
 import java.time.LocalDate;
 
@@ -12,20 +12,26 @@ public class TestDTO {
     private interface Author { String getAuthor(); }
     private interface UploadDate { LocalDate getUploadDate(); }
 
-    private interface FullFieldSet extends TestDTO.Id, TestDTO.Name, TestDTO.Author, TestDTO.UploadDate {}
-    private interface FullFieldSetWithoutId extends TestDTO.Name, TestDTO.Author, TestDTO.UploadDate {}
+    private interface FullFieldSet extends
+            TestDTO.Id,
+            TestDTO.Name,
+            TestDTO.Author,
+            TestDTO.UploadDate {}
+    private interface FullFieldSetWithoutId extends
+            TestDTO.Name,
+            TestDTO.Author,
+            TestDTO.UploadDate {}
 
     public enum Request {;
-        @Value
+        @Data
         public static class TestCreateDTO implements FullFieldSetWithoutId {
             String name;
             String author;
             LocalDate uploadDate;
         }
 
-        @Value
-        public static class TestUpdateDTO implements FullFieldSet {
-            Long id;
+        @Data
+        public static class TestUpdateDTO implements FullFieldSetWithoutId {
             String name;
             String author;
             LocalDate uploadDate;
@@ -33,7 +39,7 @@ public class TestDTO {
     }
 
     public enum Response {;
-        @Value
+        @Data
         public static class TestResponseDTO implements FullFieldSet {
             Long id;
             String name;
@@ -43,4 +49,3 @@ public class TestDTO {
     }
 
 }
-
