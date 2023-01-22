@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import ru.veretennikov.testing.entity.db.UserAnswer;
 
 @Repository
-public interface UserAnswerRepository extends JpaRepository<UserAnswer, Long> {
-}
+public interface UserAnswerRepository extends JpaRepository<UserAnswer, Long> {}

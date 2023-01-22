@@ -12,12 +12,9 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       format_sql: true
-#  sql:
-#    init:
-#      schema-locations: testing
 
 logging:
   level:

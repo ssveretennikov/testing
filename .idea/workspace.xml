@@ -4,11 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d8b8b21-5a5a-46f9-aad6-eca48254fcd9" name="Changes" comment="наполнение модуля сущностей БД">
+    <list default="true" id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/request/AnswerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/request/PassedTestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/request/QuestionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/request/TestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/request/UserAnswerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/mapper/AnswerDtoEntityMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/AnswerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/AnswerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/PassedTestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/PassedTestServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/QuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/QuestionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/TestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/TestServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/UserAnswerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/UserAnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing-entity/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/db/PassedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/db/PassedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/meta/DbMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/meta/DbMeta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/EntityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/EntityApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/AnswerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/AnswerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/PassedTestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/PassedTestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/TestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/TestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/UserAnswerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/repository/UserAnswerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing-entity/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,35 +47,30 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
-    <projectState path="$PROJECT_DIR$/testing-entity">
-      <ProjectState />
-    </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-        <option value="com.haulmont.jpb.JpaRepository" />
-      </list>
-    </option>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -66,116 +85,43 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2KNFM5jo2cpTwZljlA0z2Dz29Cr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2KfuXf8qE6EpkHxU6iwEv1auqqc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="compactDirectories" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelOrder2": "2",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RequestMappingsPanelWidth2": "75",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/projects/my/testing-mc/testing",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "3bff8872a5f3ee4c3aee45d4a58573b6"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.veretennikov.testing.entity.meta" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\my\testing-mc\testing" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ru.veretennikov.testing.entity.db" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-  </component>
   <component name="RunManager">
-    <configuration name="EntityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="EntityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="testing-entity.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.veretennikov.testing.entity.EntityApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.veretennikov.testing.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.EntityApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7d8b8b21-5a5a-46f9-aad6-eca48254fcd9" name="Changes" comment="" />
-      <created>1673807086845</created>
+      <changelist id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="" />
+      <created>1674378004167</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673807086845</updated>
-      <workItem from="1673807089197" duration="14684000" />
-      <workItem from="1674303162513" duration="5863000" />
+      <updated>1674378004167</updated>
+      <workItem from="1674378006258" duration="956000" />
     </task>
-    <task id="LOCAL-00001" summary="init repo">
-      <created>1673807378967</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1673807378967</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add ext">
-      <created>1673807397395</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1673807397395</updated>
-    </task>
-    <task id="LOCAL-00003" summary="добавлен модуль сущностей БД">
-      <created>1673807980972</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1673807980972</updated>
-    </task>
-    <task id="LOCAL-00004" summary="наполнение модуля сущностей БД">
-      <created>1674322102911</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1674322102911</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,16 +137,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/testing-entity" />
-    </ignored-roots>
-    <MESSAGE value="init repo" />
-    <MESSAGE value="add ext" />
-    <MESSAGE value="добавлен модуль сущностей БД" />
-    <MESSAGE value="наполнение модуля сущностей БД" />
-    <option name="LAST_COMMIT_MESSAGE" value="наполнение модуля сущностей БД" />
   </component>
 </project>
