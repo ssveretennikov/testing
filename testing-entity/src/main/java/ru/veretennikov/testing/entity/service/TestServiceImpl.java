@@ -23,9 +23,7 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public TestResponseDTO findById(Long id) {
-        return repository.findById(id)
-                .map(mapper::toDTO)
-                .orElse(null);
+        return mapper.toDTO(getById(id));
     }
 
     @Override
@@ -45,15 +43,30 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public TestResponseDTO update(Long id, TestUpdateDTO updateDTO) {
-//        Test test = mapper.toEntity(updateDTO);
-//        Test result = repository.save(test);
-//        return mapper.toDTO(result);
-        return null;        // exception
+        if (updateDTO == null)
+            throw new IllegalArgumentException("Нечего обновлять");
+
+        Test test = getById(id);
+        if (updateDTO.getAuthor() != null)
+            test.setAuthor(updateDTO.getAuthor());
+        if (updateDTO.getName() != null)
+            test.setName(updateDTO.getName());
+        if (updateDTO.getUploadDate() != null)
+            test.setUploadDate(updateDTO.getUploadDate());
+
+        Test result = repository.save(test);
+        return mapper.toDTO(result);
     }
 
     @Override
     public void delete(Long id) {
+        getById(id);
         repository.deleteById(id);
+    }
+
+    private Test getById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись с id %d", id)));
     }
 
 }

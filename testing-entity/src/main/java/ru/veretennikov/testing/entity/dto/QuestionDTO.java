@@ -2,7 +2,7 @@ package ru.veretennikov.testing.entity.dto;
 
 import lombok.Data;
 import ru.veretennikov.testing.entity.db.enums.QuestionType;
-import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreateDTO;
+import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreatePackageDTO;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Response.AnswerResponseDTO;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public class QuestionDTO {
     private interface Weight { Integer getWeight(); }
     private interface Description { String getDescription(); }
     private interface Type { QuestionType getType(); }
-    private interface AnswersForCreate { List<AnswerCreateDTO> getAnswers(); }
+    private interface AnswersForCreate { List<AnswerCreatePackageDTO> getAnswers(); }
     private interface AnswersForResponse { List<AnswerResponseDTO> getAnswers(); }
 
     private interface FullFieldSet extends
@@ -48,7 +48,7 @@ public class QuestionDTO {
             Integer weight;
             String description;
             QuestionType type;
-            List<AnswerCreateDTO> answers;
+            List<AnswerCreatePackageDTO> answers;
         }
 
         @Data

@@ -5,6 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import ru.veretennikov.testing.entity.db.Answer;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreateDTO;
+import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreatePackageDTO;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Response.AnswerResponseDTO;
 
 /**
@@ -23,5 +24,11 @@ public interface AnswerDtoEntityMapper {
             @Mapping(target = "question", ignore = true),
     })
     Answer toEntity(AnswerCreateDTO source);
+
+    @Mappings({
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "question", ignore = true),
+    })
+    Answer toEntity(AnswerCreatePackageDTO source);
 
 }

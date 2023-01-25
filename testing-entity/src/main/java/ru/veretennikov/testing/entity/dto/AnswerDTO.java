@@ -25,6 +25,11 @@ public class AnswerDTO {
             AnswerDTO.Description,
             AnswerDTO.Correct,
             AnswerDTO.OrderNumber {}
+    private interface FieldSetForCreatePackage extends
+            AnswerDTO.LeftPart,
+            AnswerDTO.Description,
+            AnswerDTO.Correct,
+            AnswerDTO.OrderNumber {}
     private interface FieldSetForUpdate extends
             AnswerDTO.LeftPart,
             AnswerDTO.Description,
@@ -40,7 +45,13 @@ public class AnswerDTO {
             Boolean correct;
             Integer orderNumber;
         }
-
+        @Data
+        public static class AnswerCreatePackageDTO implements FieldSetForCreatePackage {
+            String leftPart;
+            String description;
+            Boolean correct;
+            Integer orderNumber;
+        }
         @Data
         public static class AnswerUpdateDTO implements FieldSetForUpdate {
             String leftPart;
