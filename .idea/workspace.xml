@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="доработаны методы сервисов: поиска, создания, обновления и удаления">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/AnswerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/AnswerDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/mapper/QuestionDtoEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/mapper/QuestionDtoEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/QuestionServiceImpl.java" afterDir="false" />
+    <list default="true" id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/db/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/db/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/db/PassedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/db/PassedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/PassedTestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/PassedTestDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +186,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674378004167</updated>
       <workItem from="1674378006258" duration="27149000" />
-      <workItem from="1674480010847" duration="19310000" />
+      <workItem from="1674480010847" duration="19845000" />
     </task>
     <task id="LOCAL-00001" summary="добавлен сервисный слой и dto">
       <created>1674379231793</created>
@@ -224,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674684422275</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="исправлен меппер вопросов. ответы теперь могут записываться вместе с вопросом">
+      <created>1674693323075</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674693323075</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,18 +253,10 @@
     <MESSAGE value="добавлен spring-web и контроллеры" />
     <MESSAGE value="доработаны DTO, конвертеры, методы обновления записи в БД" />
     <MESSAGE value="доработаны методы сервисов: поиска, создания, обновления и удаления" />
-    <option name="LAST_COMMIT_MESSAGE" value="доработаны методы сервисов: поиска, создания, обновления и удаления" />
+    <MESSAGE value="исправлен меппер вопросов. ответы теперь могут записываться вместе с вопросом" />
+    <option name="LAST_COMMIT_MESSAGE" value="исправлен меппер вопросов. ответы теперь могут записываться вместе с вопросом" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/QuestionServiceImpl.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="result" />

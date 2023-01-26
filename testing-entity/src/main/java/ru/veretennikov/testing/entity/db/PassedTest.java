@@ -1,6 +1,14 @@
 package ru.veretennikov.testing.entity.db;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Data;
 import ru.veretennikov.testing.entity.meta.DbMeta;
 
@@ -32,15 +40,15 @@ public class PassedTest {
     private LocalDateTime dateEnd;
 
     @Column(name = DbMeta.passed_test.fld.total_question)
-    private int totalQuestion;
+    private Integer totalQuestion;
 
     @Column(name = DbMeta.passed_test.fld.num_correct)
-    private int numCorrect;
+    private Integer numCorrect;
 
     @Column(name = DbMeta.passed_test.fld.total_weight)
-    private int totalWeight;
+    private Integer totalWeight;
 
     @Column(name = DbMeta.passed_test.fld.gained_weight)
-    private int gainedWeight;
+    private Integer gainedWeight;
 
 }

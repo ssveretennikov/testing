@@ -25,7 +25,7 @@ public class Answer {
     private String description;
 
     @Column(name = DbMeta.answer.fld.correct)
-    private boolean correct;
+    private Boolean correct;
 
     @Column(name = DbMeta.answer.fld.order_number)
     private Integer orderNumber;

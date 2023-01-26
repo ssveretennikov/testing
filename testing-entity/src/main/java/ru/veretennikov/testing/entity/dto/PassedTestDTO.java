@@ -12,10 +12,10 @@ public class PassedTestDTO {
     private interface UserName { String getUserName(); }
     private interface DateStart { LocalDateTime getDateStart(); }
     private interface DateEnd { LocalDateTime getDateEnd(); }
-    private interface TotalQuestion { int getTotalQuestion(); }
-    private interface NumCorrect { int getNumCorrect(); }
-    private interface TotalWeight { int getTotalWeight(); }
-    private interface GainedWeight { int getGainedWeight(); }
+    private interface TotalQuestion { Integer getTotalQuestion(); }
+    private interface NumCorrect { Integer getNumCorrect(); }
+    private interface TotalWeight { Integer getTotalWeight(); }
+    private interface GainedWeight { Integer getGainedWeight(); }
 
     private interface FullFieldSet extends
             PassedTestDTO.Id,
@@ -48,10 +48,10 @@ public class PassedTestDTO {
             String userName;
             LocalDateTime dateStart;
             LocalDateTime dateEnd;
-            int totalQuestion;
-            int numCorrect;
-            int totalWeight;
-            int gainedWeight;
+            Integer totalQuestion;
+            Integer numCorrect;
+            Integer totalWeight;
+            Integer gainedWeight;
         }
 
         @Data
@@ -70,10 +70,10 @@ public class PassedTestDTO {
             String userName;
             LocalDateTime dateStart;
             LocalDateTime dateEnd;
-            int totalQuestion;
-            int numCorrect;
-            int totalWeight;
-            int gainedWeight;
+            Integer totalQuestion;
+            Integer numCorrect;
+            Integer totalWeight;
+            Integer gainedWeight;
         }
     }
 
