@@ -2,6 +2,7 @@ package ru.veretennikov.testing.entity.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.veretennikov.testing.entity.db.Answer;
 import ru.veretennikov.testing.entity.db.Question;
 import ru.veretennikov.testing.entity.db.Test;
 import ru.veretennikov.testing.entity.dto.QuestionDTO.Request.QuestionCreateDTO;
@@ -13,6 +14,7 @@ import ru.veretennikov.testing.entity.repository.TestRepository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -44,8 +46,11 @@ public class QuestionServiceImpl implements QuestionService {
         Test test = testRepository.findById(createDTO.getTestId())
                 .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись в таблице тестов с id %d", createDTO.getTestId())));
         question.setTest(test);
+        List<Answer> answers = Optional.ofNullable(question.getAnswers()).orElse(List.of());
+        for (Answer answer: answers) {
+            answer.setQuestion(question);
+        }
 
-        // TODO: проверить, запишутся ли ответы вместе с вопросом
         Question result = repository.save(question);
         return mapper.toDTO(result);
     }

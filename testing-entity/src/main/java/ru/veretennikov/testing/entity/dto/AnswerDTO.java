@@ -45,6 +45,10 @@ public class AnswerDTO {
             Boolean correct;
             Integer orderNumber;
         }
+        /**
+         * для пакетного добавления нескольких записей через ведущую сущность - Question.
+         * т.к. на момент создания еще не будет ссылки на question, то questionId не передается
+        **/
         @Data
         public static class AnswerCreatePackageDTO implements FieldSetForCreatePackage {
             String leftPart;

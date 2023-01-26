@@ -21,7 +21,6 @@ public interface QuestionDtoEntityMapper {
     @Mappings({
             @Mapping(target = "id", ignore = true),
             @Mapping(target = "test", ignore = true),
-            @Mapping(target = "answers", ignore = true),
     })
     Question toEntity(QuestionCreateDTO source);
 
