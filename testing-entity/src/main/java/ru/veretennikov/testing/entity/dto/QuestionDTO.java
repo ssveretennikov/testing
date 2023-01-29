@@ -26,9 +26,9 @@ public class QuestionDTO {
     private interface Description { String getDescription(); }
     @NotBlank
     private interface Type { QuestionType getType(); }
-    @Size(min = 2)
+    @Size(min = 1)
     private interface AnswersForCreate { List<AnswerCreatePackageDTO> getAnswers(); }
-    @Size(min = 2)
+    @Size(min = 1)
     private interface AnswersForResponse { List<AnswerResponseDTO> getAnswers(); }
 
     private interface FullFieldSet extends
