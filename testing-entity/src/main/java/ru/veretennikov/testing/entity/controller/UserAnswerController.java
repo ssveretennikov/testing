@@ -28,23 +28,23 @@ public class UserAnswerController {
     private final UserAnswerService userAnswerService;
 
     @GetMapping(value = "user-answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserAnswerResponseDTO getUserAnswer(@NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid UserAnswerResponseDTO getUserAnswer(@PathVariable @NotNull @PositiveOrZero Long id) {
         return userAnswerService.findById(id);
     }
 
     @GetMapping(value = "user-answer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<UserAnswerResponseDTO> getUserAnswers() {
+    public @Valid List<UserAnswerResponseDTO> getUserAnswers() {
         return userAnswerService.findAll();
     }
 
     @PostMapping(value = "user-answer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserAnswerResponseDTO createUserAnswer(@Valid @RequestBody UserAnswerCreateDTO createDTO) {
+    public @Valid UserAnswerResponseDTO createUserAnswer(@RequestBody @Valid UserAnswerCreateDTO createDTO) {
         return userAnswerService.create(createDTO);
     }
 
     @PutMapping(value = "user-answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserAnswerResponseDTO updateUserAnswer(@Valid @RequestBody UserAnswerUpdateDTO updateDTO,
-                                                  @NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid UserAnswerResponseDTO updateUserAnswer(@RequestBody @Valid UserAnswerUpdateDTO updateDTO,
+                                                         @PathVariable @NotNull @PositiveOrZero Long id) {
         return userAnswerService.update(id, updateDTO);
     }
 

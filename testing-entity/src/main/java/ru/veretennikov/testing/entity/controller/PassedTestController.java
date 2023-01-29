@@ -28,28 +28,28 @@ public class PassedTestController {
     private final PassedTestService passedTestService;
 
     @GetMapping(value = "passed-test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PassedTestResponseDTO getPassedTest(@NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid PassedTestResponseDTO getPassedTest(@PathVariable @NotNull @PositiveOrZero Long id) {
         return passedTestService.findById(id);
     }
 
     @GetMapping(value = "passed-test", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PassedTestResponseDTO> getPassedTests() {
+    public @Valid List<PassedTestResponseDTO> getPassedTests() {
         return passedTestService.findAll();
     }
 
     @PostMapping(value = "passed-test", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PassedTestResponseDTO createPassedTest(@Valid @RequestBody PassedTestCreateDTO createDTO) {
+    public @Valid PassedTestResponseDTO createPassedTest(@RequestBody @Valid PassedTestCreateDTO createDTO) {
         return passedTestService.create(createDTO);
     }
 
     @PutMapping(value = "passed-test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PassedTestResponseDTO updatePassedTest(@Valid @RequestBody PassedTestUpdateDTO updateDTO,
-                                                  @NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid PassedTestResponseDTO updatePassedTest(@RequestBody @Valid PassedTestUpdateDTO updateDTO,
+                                                         @PathVariable @NotNull @PositiveOrZero Long id) {
         return passedTestService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "passed-test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deletePassedTest(@NotNull @PositiveOrZero @PathVariable Long id) {
+    public String deletePassedTest(@PathVariable @NotNull @PositiveOrZero Long id) {
         passedTestService.delete(id);
         return String.format("Запись с id %d успешно удалена", id);
     }

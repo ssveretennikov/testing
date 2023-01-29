@@ -28,28 +28,28 @@ public class AnswerController {
     private final AnswerService answerService;
 
     @GetMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AnswerResponseDTO getAnswer(@NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid AnswerResponseDTO getAnswer(@PathVariable @NotNull @PositiveOrZero Long id) {
         return answerService.findById(id);
     }
 
     @GetMapping(value = "answer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<AnswerResponseDTO> getAnswers() {
+    public @Valid List<AnswerResponseDTO> getAnswers() {
         return answerService.findAll();
     }
 
     @PostMapping(value = "answer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AnswerResponseDTO createAnswer(@Valid @RequestBody AnswerCreateDTO createDTO) {
+    public @Valid AnswerResponseDTO createAnswer(@RequestBody @Valid AnswerCreateDTO createDTO) {
         return answerService.create(createDTO);
     }
 
     @PutMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AnswerResponseDTO updateAnswer(@Valid @RequestBody AnswerUpdateDTO updateDTO,
-                                          @NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid AnswerResponseDTO updateAnswer(@RequestBody @Valid AnswerUpdateDTO updateDTO,
+                                                 @PathVariable @NotNull @PositiveOrZero Long id) {
         return answerService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deleteAnswer(@NotNull @PositiveOrZero @PathVariable Long id) {
+    public String deleteAnswer(@PathVariable @NotNull @PositiveOrZero Long id) {
         answerService.delete(id);
         return String.format("Запись с id %d успешно удалена", id);
     }

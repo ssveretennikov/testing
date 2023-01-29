@@ -28,28 +28,28 @@ public class QuestionController {
     private final QuestionService questionService;
 
     @GetMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public QuestionResponseDTO getQuestion(@NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid QuestionResponseDTO getQuestion(@PathVariable @NotNull @PositiveOrZero Long id) {
         return questionService.findById(id);
     }
 
     @GetMapping(value = "question", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<QuestionResponseDTO> getQuestions() {
+    public @Valid List<QuestionResponseDTO> getQuestions() {
         return questionService.findAll();
     }
 
     @PostMapping(value = "question", produces = MediaType.APPLICATION_JSON_VALUE)
-    public QuestionResponseDTO createQuestion(@Valid @RequestBody QuestionCreateDTO createDTO) {
+    public @Valid QuestionResponseDTO createQuestion(@RequestBody @Valid QuestionCreateDTO createDTO) {
         return questionService.create(createDTO);
     }
 
     @PutMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public QuestionResponseDTO updateQuestion(@Valid @RequestBody QuestionUpdateDTO updateDTO,
-                                              @NotNull @PositiveOrZero @PathVariable Long id) {
+    public @Valid QuestionResponseDTO updateQuestion(@RequestBody @Valid QuestionUpdateDTO updateDTO,
+                                                     @PathVariable @NotNull @PositiveOrZero Long id) {
         return questionService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deleteQuestion(@NotNull @PositiveOrZero @PathVariable Long id) {
+    public String deleteQuestion(@PathVariable @NotNull @PositiveOrZero Long id) {
         questionService.delete(id);
         return String.format("Запись с id %d успешно удалена", id);
     }
