@@ -3,7 +3,6 @@ package ru.veretennikov.testing.entity.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,30 +26,29 @@ public class AnswerController {
     private final AnswerService answerService;
 
     @GetMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AnswerResponseDTO> getAnswer(@PathVariable Long id) {
-        return ResponseEntity.ok(answerService.findById(id));
+    public AnswerResponseDTO getAnswer(@PathVariable Long id) {
+        return answerService.findById(id);
     }
 
     @GetMapping(value = "answer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<AnswerResponseDTO>> getAnswers() {
-        return ResponseEntity.ok(answerService.findAll());
+    public List<AnswerResponseDTO> getAnswers() {
+        return answerService.findAll();
     }
 
     @PostMapping(value = "answer", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AnswerResponseDTO> createAnswer(@Valid @RequestBody AnswerCreateDTO createDTO) {
-        return ResponseEntity.ok(answerService.create(createDTO));
+    public AnswerResponseDTO createAnswer(@Valid @RequestBody AnswerCreateDTO createDTO) {
+        return answerService.create(createDTO);
     }
 
     @PutMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AnswerResponseDTO> updateAnswer(@Valid @RequestBody AnswerUpdateDTO updateDTO,
-                                                          @PathVariable Long id) {
-        return ResponseEntity.ok(answerService.update(id, updateDTO));
+    public AnswerResponseDTO updateAnswer(@Valid @RequestBody AnswerUpdateDTO updateDTO, @PathVariable Long id) {
+        return answerService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> deleteAnswer(@PathVariable Long id) {
+    public String deleteAnswer(@PathVariable Long id) {
         answerService.delete(id);
-        return ResponseEntity.ok(String.format("Запись с id %d успешно удалена", id));
+        return String.format("Запись с id %d успешно удалена", id);
     }
 
 }

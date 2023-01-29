@@ -3,7 +3,6 @@ package ru.veretennikov.testing.entity.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,30 +26,29 @@ public class TestController {
     private final TestService testService;
 
     @GetMapping(value = "test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TestResponseDTO> getTest(@PathVariable Long id) {
-        return ResponseEntity.ok(testService.findById(id));
+    public TestResponseDTO getTest(@PathVariable Long id) {
+        return testService.findById(id);
     }
 
     @GetMapping(value = "test", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<TestResponseDTO>> getTests() {
-        return ResponseEntity.ok(testService.findAll());
+    public List<TestResponseDTO> getTests() {
+        return testService.findAll();
     }
 
     @PostMapping(value = "test", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TestResponseDTO> createTest(@Valid @RequestBody TestCreateDTO createDTO) {
-        return ResponseEntity.ok(testService.create(createDTO));
+    public TestResponseDTO createTest(@Valid @RequestBody TestCreateDTO createDTO) {
+        return testService.create(createDTO);
     }
 
     @PutMapping(value = "test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TestResponseDTO> updateTest(@Valid @RequestBody TestUpdateDTO updateDTO,
-                                                      @PathVariable Long id) {
-        return ResponseEntity.ok(testService.update(id, updateDTO));
+    public TestResponseDTO updateTest(@Valid @RequestBody TestUpdateDTO updateDTO, @PathVariable Long id) {
+        return testService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> deleteTest(@PathVariable Long id) {
+    public String deleteTest(@PathVariable Long id) {
         testService.delete(id);
-        return ResponseEntity.ok(String.format("Запись с id %d успешно удалена", id));
+        return String.format("Запись с id %d успешно удалена", id);
     }
 
 }

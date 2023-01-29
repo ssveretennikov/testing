@@ -3,7 +3,6 @@ package ru.veretennikov.testing.entity.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.veretennikov.testing.entity.dto.QuestionDTO.Request.QuestionCreateDTO;
-import ru.veretennikov.testing.entity.dto.QuestionDTO.Response.QuestionResponseDTO;
 import ru.veretennikov.testing.entity.dto.QuestionDTO.Request.QuestionUpdateDTO;
+import ru.veretennikov.testing.entity.dto.QuestionDTO.Response.QuestionResponseDTO;
 import ru.veretennikov.testing.entity.service.QuestionService;
 
 import java.util.List;
@@ -27,30 +26,29 @@ public class QuestionController {
     private final QuestionService questionService;
 
     @GetMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<QuestionResponseDTO> getQuestion(@PathVariable Long id) {
-        return ResponseEntity.ok(questionService.findById(id));
+    public QuestionResponseDTO getQuestion(@PathVariable Long id) {
+        return questionService.findById(id);
     }
 
     @GetMapping(value = "question", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<QuestionResponseDTO>> getQuestions() {
-        return ResponseEntity.ok(questionService.findAll());
+    public List<QuestionResponseDTO> getQuestions() {
+        return questionService.findAll();
     }
 
     @PostMapping(value = "question", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<QuestionResponseDTO> createQuestion(@Valid @RequestBody QuestionCreateDTO createDTO) {
-        return ResponseEntity.ok(questionService.create(createDTO));
+    public QuestionResponseDTO createQuestion(@Valid @RequestBody QuestionCreateDTO createDTO) {
+        return questionService.create(createDTO);
     }
 
     @PutMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<QuestionResponseDTO> updateQuestion(@Valid @RequestBody QuestionUpdateDTO updateDTO,
-                                                              @PathVariable Long id) {
-        return ResponseEntity.ok(questionService.update(id, updateDTO));
+    public QuestionResponseDTO updateQuestion(@Valid @RequestBody QuestionUpdateDTO updateDTO, @PathVariable Long id) {
+        return questionService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> deleteQuestion(@PathVariable Long id) {
+    public String deleteQuestion(@PathVariable Long id) {
         questionService.delete(id);
-        return ResponseEntity.ok(String.format("Запись с id %d успешно удалена", id));
+        return String.format("Запись с id %d успешно удалена", id);
     }
 
 }
