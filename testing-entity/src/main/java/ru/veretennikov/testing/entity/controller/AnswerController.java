@@ -1,6 +1,8 @@
 package ru.veretennikov.testing.entity.controller;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -26,7 +28,7 @@ public class AnswerController {
     private final AnswerService answerService;
 
     @GetMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AnswerResponseDTO getAnswer(@PathVariable Long id) {
+    public AnswerResponseDTO getAnswer(@NotNull @PositiveOrZero @PathVariable Long id) {
         return answerService.findById(id);
     }
 
@@ -41,12 +43,13 @@ public class AnswerController {
     }
 
     @PutMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AnswerResponseDTO updateAnswer(@Valid @RequestBody AnswerUpdateDTO updateDTO, @PathVariable Long id) {
+    public AnswerResponseDTO updateAnswer(@Valid @RequestBody AnswerUpdateDTO updateDTO,
+                                          @NotNull @PositiveOrZero @PathVariable Long id) {
         return answerService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deleteAnswer(@PathVariable Long id) {
+    public String deleteAnswer(@NotNull @PositiveOrZero @PathVariable Long id) {
         answerService.delete(id);
         return String.format("Запись с id %d успешно удалена", id);
     }

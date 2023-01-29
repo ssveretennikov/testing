@@ -1,6 +1,8 @@
 package ru.veretennikov.testing.entity.controller;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -26,7 +28,7 @@ public class UserAnswerController {
     private final UserAnswerService userAnswerService;
 
     @GetMapping(value = "user-answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserAnswerResponseDTO getUserAnswer(@PathVariable Long id) {
+    public UserAnswerResponseDTO getUserAnswer(@NotNull @PositiveOrZero @PathVariable Long id) {
         return userAnswerService.findById(id);
     }
 
@@ -41,12 +43,13 @@ public class UserAnswerController {
     }
 
     @PutMapping(value = "user-answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserAnswerResponseDTO updateUserAnswer(@Valid @RequestBody UserAnswerUpdateDTO updateDTO, @PathVariable Long id) {
+    public UserAnswerResponseDTO updateUserAnswer(@Valid @RequestBody UserAnswerUpdateDTO updateDTO,
+                                                  @NotNull @PositiveOrZero @PathVariable Long id) {
         return userAnswerService.update(id, updateDTO);
     }
 
     @DeleteMapping(value = "user-answer/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deleteUserAnswer(@PathVariable Long id) {
+    public String deleteUserAnswer(@NotNull @PositiveOrZero @PathVariable Long id) {
         userAnswerService.delete(id);
         return String.format("Запись с id %d успешно удалена", id);
     }
