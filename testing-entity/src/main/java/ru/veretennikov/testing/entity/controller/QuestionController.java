@@ -1,5 +1,6 @@
 package ru.veretennikov.testing.entity.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -36,13 +37,13 @@ public class QuestionController {
     }
 
     @PostMapping(value = "question", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<QuestionResponseDTO> createQuestion(@RequestBody QuestionCreateDTO createDTO) {
+    public ResponseEntity<QuestionResponseDTO> createQuestion(@Valid @RequestBody QuestionCreateDTO createDTO) {
         return ResponseEntity.ok(questionService.create(createDTO));
     }
 
     @PutMapping(value = "question/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<QuestionResponseDTO> updateQuestion(@PathVariable Long id,
-                                                              @RequestBody QuestionUpdateDTO updateDTO) {
+    public ResponseEntity<QuestionResponseDTO> updateQuestion(@Valid @RequestBody QuestionUpdateDTO updateDTO,
+                                                              @PathVariable Long id) {
         return ResponseEntity.ok(questionService.update(id, updateDTO));
     }
 

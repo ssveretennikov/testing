@@ -1,15 +1,25 @@
 package ru.veretennikov.testing.entity.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 public class AnswerDTO {
 
 //    над методами интерфейсов дописать аннотации валидации, а также документацию
+    @NotNull
+    @PositiveOrZero
     private interface Id { Long getId(); }
+    @NotNull
+    @PositiveOrZero
     private interface QuestionId { Long getQuestionId(); }
     private interface LeftPart { String getLeftPart(); }
+    @NotBlank
     private interface Description { String getDescription(); }
+    @NotNull
     private interface Correct { Boolean getCorrect(); }
+
     private interface OrderNumber { Integer getOrderNumber(); }
 
     private interface FullFieldSet extends

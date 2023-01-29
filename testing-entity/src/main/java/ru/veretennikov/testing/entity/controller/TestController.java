@@ -1,5 +1,6 @@
 package ru.veretennikov.testing.entity.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -36,13 +37,13 @@ public class TestController {
     }
 
     @PostMapping(value = "test", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TestResponseDTO> createTest(@RequestBody TestCreateDTO createDTO) {
+    public ResponseEntity<TestResponseDTO> createTest(@Valid @RequestBody TestCreateDTO createDTO) {
         return ResponseEntity.ok(testService.create(createDTO));
     }
 
     @PutMapping(value = "test/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TestResponseDTO> updateTest(@PathVariable Long id,
-                                                      @RequestBody TestUpdateDTO updateDTO) {
+    public ResponseEntity<TestResponseDTO> updateTest(@Valid @RequestBody TestUpdateDTO updateDTO,
+                                                      @PathVariable Long id) {
         return ResponseEntity.ok(testService.update(id, updateDTO));
     }
 

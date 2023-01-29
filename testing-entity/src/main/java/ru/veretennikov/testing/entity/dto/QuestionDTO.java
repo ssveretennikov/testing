@@ -1,5 +1,9 @@
 package ru.veretennikov.testing.entity.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import ru.veretennikov.testing.entity.db.enums.QuestionType;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreatePackageDTO;
@@ -10,13 +14,21 @@ import java.util.List;
 public class QuestionDTO {
 
 //    над методами интерфейсов дописать аннотации валидации, а также документацию
+    @NotNull
+    @PositiveOrZero
     private interface Id { Long getId(); }
+    @NotNull
+    @PositiveOrZero
     private interface TestId { Long getTestId(); }
     private interface OrderNumber { Integer getOrderNumber(); }
     private interface Weight { Integer getWeight(); }
+    @NotBlank
     private interface Description { String getDescription(); }
+    @NotBlank
     private interface Type { QuestionType getType(); }
+    @Size(min = 2)
     private interface AnswersForCreate { List<AnswerCreatePackageDTO> getAnswers(); }
+    @Size(min = 2)
     private interface AnswersForResponse { List<AnswerResponseDTO> getAnswers(); }
 
     private interface FullFieldSet extends

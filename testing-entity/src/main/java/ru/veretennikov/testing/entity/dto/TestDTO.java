@@ -1,5 +1,9 @@
 package ru.veretennikov.testing.entity.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -7,9 +11,15 @@ import java.time.LocalDate;
 public class TestDTO {
 
 //    над методами интерфейсов дописать аннотации валидации, а также документацию
+    @NotNull
+    @PositiveOrZero
     private interface Id { Long getId(); }
+    @NotBlank
     private interface Name { String getName(); }
+    @NotBlank
     private interface Author { String getAuthor(); }
+    @NotNull
+    @PastOrPresent
     private interface UploadDate { LocalDate getUploadDate(); }
 
     private interface FullFieldSet extends
