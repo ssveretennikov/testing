@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target( { ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
+@Target( { ElementType.TYPE})
 @Constraint(validatedBy = HasCorrectAnswerValidator.class)
 public @interface HasCorrectAnswer {
     String message() default "Вопрос должен содержать как минимум один правильный ответ";

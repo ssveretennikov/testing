@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target( { ElementType.TYPE, ElementType.METHOD, ElementType.FIELD })
+@Target( { ElementType.TYPE})
 @Constraint(validatedBy = HasCorrectAnswerMappingValidator.class)
 public @interface HasCorrectAnswerMapping {
     String message() default "Для типа вопроса - сопоставление, в ответах должны быть заполнены обе стороны сопоставления";
