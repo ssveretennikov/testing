@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="" />
+    <list default="true" id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerMappingValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/QuestionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/QuestionDTO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,8 +59,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -117,6 +125,7 @@
       <recent name="ru.veretennikov.testing.entity.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.veretennikov.testing.entity.validation" />
       <recent name="ru.veretennikov.testing.entity.controller" />
       <recent name="ru.veretennikov.testing.entity.mapper" />
     </key>
@@ -182,7 +191,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674378004167</updated>
       <workItem from="1674378006258" duration="27149000" />
-      <workItem from="1674480010847" duration="35783000" />
+      <workItem from="1674480010847" duration="37626000" />
     </task>
     <task id="LOCAL-00001" summary="добавлен сервисный слой и dto">
       <created>1674379231793</created>
@@ -261,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675031511476</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="добавлена валидация на ответы контроллеров">
+      <created>1675031756250</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675031756250</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +306,8 @@
     <MESSAGE value="ResponseEntity не нужно" />
     <MESSAGE value="добавлена валидация на параметры запросов" />
     <MESSAGE value="скорректировано условие на количество ответов для вопроса - может быть и один правильный ответ для типа вопроса &quot;ввод текста&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="скорректировано условие на количество ответов для вопроса - может быть и один правильный ответ для типа вопроса &quot;ввод текста&quot;" />
+    <MESSAGE value="добавлена валидация на ответы контроллеров" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавлена валидация на ответы контроллеров" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

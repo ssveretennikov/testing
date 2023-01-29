@@ -8,6 +8,8 @@ import lombok.Data;
 import ru.veretennikov.testing.entity.db.enums.QuestionType;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreatePackageDTO;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Response.AnswerResponseDTO;
+import ru.veretennikov.testing.entity.validation.HasCorrectAnswerMapping;
+import ru.veretennikov.testing.entity.validation.HasCorrectAnswer;
 
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class QuestionDTO {
             QuestionDTO.Description,
             QuestionDTO.Type,
             QuestionDTO.AnswersForResponse {}
+
     private interface FieldSetForCreate extends
             QuestionDTO.TestId,
             QuestionDTO.OrderNumber,
@@ -54,6 +57,8 @@ public class QuestionDTO {
 
     public enum Request {;
         @Data
+        @HasCorrectAnswer
+        @HasCorrectAnswerMapping
         public static class QuestionCreateDTO implements FieldSetForCreate {
             Long testId;
             Integer orderNumber;
