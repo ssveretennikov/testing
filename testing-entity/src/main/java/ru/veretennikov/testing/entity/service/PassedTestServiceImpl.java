@@ -8,6 +8,7 @@ import ru.veretennikov.testing.entity.db.Test;
 import ru.veretennikov.testing.entity.dto.PassedTestDTO.Request.PassedTestCreateDTO;
 import ru.veretennikov.testing.entity.dto.PassedTestDTO.Request.PassedTestUpdateDTO;
 import ru.veretennikov.testing.entity.dto.PassedTestDTO.Response.PassedTestResponseDTO;
+import ru.veretennikov.testing.entity.exception.EntityNotFoundException;
 import ru.veretennikov.testing.entity.mapper.PassedTestDtoEntityMapper;
 import ru.veretennikov.testing.entity.repository.PassedTestRepository;
 import ru.veretennikov.testing.entity.repository.TestRepository;
@@ -16,6 +17,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.lang.String.format;
 
 @Service
 @RequiredArgsConstructor
@@ -43,7 +46,7 @@ public class PassedTestServiceImpl implements PassedTestService {
         PassedTest passedTest = mapper.toEntity(createDTO);
 
         Test test = testRepository.findById(createDTO.getTestId())
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись в таблице тестов с id %d", createDTO.getTestId())));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись в таблице тестов с id %d", createDTO.getTestId())));
         passedTest.setTest(test);
 
         PassedTest result = repository.save(passedTest);
@@ -75,7 +78,7 @@ public class PassedTestServiceImpl implements PassedTestService {
 
     private PassedTest getById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись с id %d", id)));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись с id %d", id)));
     }
 
 }

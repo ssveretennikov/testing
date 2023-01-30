@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerMapping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerMappingValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/exception/CommonExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/exception/EntityNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/exception/Error.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/QuestionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/QuestionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/EntityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/EntityApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/PassedTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/PassedTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/UserAnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/controller/UserAnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/TestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/TestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/AnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/PassedTestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/PassedTestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/QuestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/TestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/UserAnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/service/UserAnswerServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +57,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="testing-entity" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="help" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -165,6 +175,48 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="testing-entity [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/testing-entity" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="testing-entity [dependencyManagement]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/testing-entity" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencyManagement" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="EntityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="testing-entity.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.veretennikov.testing.entity.EntityApplication" />
@@ -173,11 +225,15 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.testing-entity [dependencies]" />
+      <item itemvalue="Gradle.testing-entity [dependencyManagement]" />
       <item itemvalue="Gradle.testing-entity [assemble]" />
       <item itemvalue="Spring Boot.EntityApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.testing-entity [dependencies]" />
+        <item itemvalue="Gradle.testing-entity [dependencyManagement]" />
         <item itemvalue="Gradle.testing-entity [assemble]" />
       </list>
     </recent_temporary>
@@ -191,7 +247,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674378004167</updated>
       <workItem from="1674378006258" duration="27149000" />
-      <workItem from="1674480010847" duration="37626000" />
+      <workItem from="1674480010847" duration="44156000" />
     </task>
     <task id="LOCAL-00001" summary="добавлен сервисный слой и dto">
       <created>1674379231793</created>
@@ -277,7 +333,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675031756250</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="добавлена кастомная валидация на вопросы">
+      <created>1675033459336</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675033459336</updated>
+    </task>
+    <task id="LOCAL-00014" summary="изменено назначение для кастомных аннотаций (нужно только для класса)">
+      <created>1675033601331</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675033601331</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +377,9 @@
     <MESSAGE value="добавлена валидация на параметры запросов" />
     <MESSAGE value="скорректировано условие на количество ответов для вопроса - может быть и один правильный ответ для типа вопроса &quot;ввод текста&quot;" />
     <MESSAGE value="добавлена валидация на ответы контроллеров" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлена валидация на ответы контроллеров" />
+    <MESSAGE value="добавлена кастомная валидация на вопросы" />
+    <MESSAGE value="изменено назначение для кастомных аннотаций (нужно только для класса)" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменено назначение для кастомных аннотаций (нужно только для класса)" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

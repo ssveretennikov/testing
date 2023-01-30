@@ -7,6 +7,7 @@ import ru.veretennikov.testing.entity.db.Question;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreateDTO;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerUpdateDTO;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Response.AnswerResponseDTO;
+import ru.veretennikov.testing.entity.exception.EntityNotFoundException;
 import ru.veretennikov.testing.entity.mapper.AnswerDtoEntityMapper;
 import ru.veretennikov.testing.entity.repository.AnswerRepository;
 import ru.veretennikov.testing.entity.repository.QuestionRepository;
@@ -15,6 +16,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.lang.String.format;
 
 @Service
 @RequiredArgsConstructor
@@ -42,7 +45,7 @@ public class AnswerServiceImpl implements AnswerService {
         Answer answer = mapper.toEntity(createDTO);
 
         Question question = questionRepository.findById(createDTO.getQuestionId())
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись в таблице вопросов с id %d", createDTO.getQuestionId())));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись в таблице вопросов с id %d", createDTO.getQuestionId())));
         answer.setQuestion(question);
 
         Answer result = repository.save(answer);
@@ -76,7 +79,7 @@ public class AnswerServiceImpl implements AnswerService {
 
     private Answer getById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись с id %d", id)));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись с id %d", id)));
     }
 
 }

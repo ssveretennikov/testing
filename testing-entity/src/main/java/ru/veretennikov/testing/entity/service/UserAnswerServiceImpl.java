@@ -9,6 +9,7 @@ import ru.veretennikov.testing.entity.db.UserAnswer;
 import ru.veretennikov.testing.entity.dto.UserAnswerDTO.Request.UserAnswerCreateDTO;
 import ru.veretennikov.testing.entity.dto.UserAnswerDTO.Request.UserAnswerUpdateDTO;
 import ru.veretennikov.testing.entity.dto.UserAnswerDTO.Response.UserAnswerResponseDTO;
+import ru.veretennikov.testing.entity.exception.EntityNotFoundException;
 import ru.veretennikov.testing.entity.mapper.UserAnswerDtoEntityMapper;
 import ru.veretennikov.testing.entity.repository.AnswerRepository;
 import ru.veretennikov.testing.entity.repository.PassedTestRepository;
@@ -19,6 +20,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.lang.String.format;
 
 @Service
 @RequiredArgsConstructor
@@ -48,13 +51,13 @@ public class UserAnswerServiceImpl implements UserAnswerService {
         UserAnswer userAnswer = mapper.toEntity(createDTO);
 
         PassedTest passedTest = passedTestRepository.findById(createDTO.getPassedTestId())
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись в таблице пройденных тестов с id %d", createDTO.getPassedTestId())));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись в таблице пройденных тестов с id %d", createDTO.getPassedTestId())));
         userAnswer.setPassedTest(passedTest);
         Question question = questionRepository.findById(createDTO.getQuestionId())
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись в таблице вопросов с id %d", createDTO.getQuestionId())));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись в таблице вопросов с id %d", createDTO.getQuestionId())));
         userAnswer.setQuestion(question);
         Answer answer = answerRepository.findById(createDTO.getAnswerId())
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись в таблице ответов с id %d", createDTO.getAnswerId())));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись в таблице ответов с id %d", createDTO.getAnswerId())));
         userAnswer.setAnswer(answer);
 
         UserAnswer result = repository.save(userAnswer);
@@ -84,7 +87,7 @@ public class UserAnswerServiceImpl implements UserAnswerService {
 
     private UserAnswer getById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись с id %d", id)));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись с id %d", id)));
     }
 
 }

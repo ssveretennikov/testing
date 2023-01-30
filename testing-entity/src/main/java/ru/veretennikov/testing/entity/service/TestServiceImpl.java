@@ -6,6 +6,7 @@ import ru.veretennikov.testing.entity.db.Test;
 import ru.veretennikov.testing.entity.dto.TestDTO.Request.TestCreateDTO;
 import ru.veretennikov.testing.entity.dto.TestDTO.Request.TestUpdateDTO;
 import ru.veretennikov.testing.entity.dto.TestDTO.Response.TestResponseDTO;
+import ru.veretennikov.testing.entity.exception.EntityNotFoundException;
 import ru.veretennikov.testing.entity.mapper.TestDtoEntityMapper;
 import ru.veretennikov.testing.entity.repository.TestRepository;
 
@@ -13,6 +14,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.lang.String.format;
 
 @Service
 @RequiredArgsConstructor
@@ -66,7 +69,7 @@ public class TestServiceImpl implements TestService {
 
     private Test getById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Не найдена запись с id %d", id)));
+                .orElseThrow(() -> new EntityNotFoundException(format("Не найдена запись с id %d", id)));
     }
 
 }
