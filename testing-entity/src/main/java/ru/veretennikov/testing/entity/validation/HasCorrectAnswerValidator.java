@@ -6,7 +6,7 @@ import ru.veretennikov.testing.entity.db.enums.QuestionType;
 import ru.veretennikov.testing.entity.dto.AnswerDTO;
 import ru.veretennikov.testing.entity.dto.QuestionDTO;
 
-public class HasCorrectAnswerValidator implements ConstraintValidator<HasCorrectAnswerMapping, QuestionDTO.Request.QuestionCreateDTO> {
+public class HasCorrectAnswerValidator implements ConstraintValidator<HasCorrectAnswer, QuestionDTO.Request.QuestionCreateDTO> {
 
     @Override
     public boolean isValid(QuestionDTO.Request.QuestionCreateDTO question, ConstraintValidatorContext context) {
