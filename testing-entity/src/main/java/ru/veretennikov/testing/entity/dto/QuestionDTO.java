@@ -1,15 +1,12 @@
 package ru.veretennikov.testing.entity.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PositiveOrZero;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import ru.veretennikov.testing.entity.db.enums.QuestionType;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Request.AnswerCreatePackageDTO;
 import ru.veretennikov.testing.entity.dto.AnswerDTO.Response.AnswerResponseDTO;
-import ru.veretennikov.testing.entity.validation.HasCorrectAnswerMapping;
 import ru.veretennikov.testing.entity.validation.HasCorrectAnswer;
+import ru.veretennikov.testing.entity.validation.HasCorrectAnswerMapping;
 
 import java.util.List;
 
@@ -17,20 +14,20 @@ public class QuestionDTO {
 
 //    над методами интерфейсов дописать аннотации валидации, а также документацию
     @NotNull
-    @PositiveOrZero
+//    @PositiveOrZero
     private interface Id { Long getId(); }
     @NotNull
-    @PositiveOrZero
+//    @PositiveOrZero
     private interface TestId { Long getTestId(); }
     private interface OrderNumber { Integer getOrderNumber(); }
     private interface Weight { Integer getWeight(); }
-    @NotBlank
+//    @NotBlank
     private interface Description { String getDescription(); }
-    @NotBlank
+//    @NotBlank
     private interface Type { QuestionType getType(); }
-    @Size(min = 1)
+//    @Size(min = 1)
     private interface AnswersForCreate { List<AnswerCreatePackageDTO> getAnswers(); }
-    @Size(min = 1)
+//    @Size(min = 1)
     private interface AnswersForResponse { List<AnswerResponseDTO> getAnswers(); }
 
     private interface FullFieldSet extends
