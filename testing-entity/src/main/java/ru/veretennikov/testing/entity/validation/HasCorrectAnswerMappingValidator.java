@@ -15,7 +15,7 @@ public class HasCorrectAnswerMappingValidator implements ConstraintValidator<Has
             return false;
         if (question.getType() == QuestionType.MATCH)
             return question.getAnswers().stream()
-                    .anyMatch(item -> !(hasText(item.getLeftPart()) && hasText(item.getDescription())));
+                    .allMatch(item -> hasText(item.getLeftPart()) && hasText(item.getDescription()));
         return true;
     }
 

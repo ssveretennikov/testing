@@ -7,7 +7,7 @@
     <list default="true" id="04127266-f0e0-4a6f-9aec-ad948fd06ef8" name="Changes" comment="добавлен глобальный перехватчик ошибок, универсализированы ответы">
       <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/QuestionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/QuestionDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/TestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/dto/TestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/exception/CommonExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/exception/CommonExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerMappingValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing-entity/src/main/java/ru/veretennikov/testing/entity/validation/HasCorrectAnswerMappingValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +234,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674378004167</updated>
       <workItem from="1674378006258" duration="27149000" />
-      <workItem from="1674480010847" duration="47084000" />
+      <workItem from="1674480010847" duration="47388000" />
     </task>
     <task id="LOCAL-00001" summary="добавлен сервисный слой и dto">
       <created>1674379231793</created>
@@ -362,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675043187110</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="добавлен обработчик для ошибки HttpMessageNotReadableException">
+      <created>1675043596209</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1675043596209</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +405,8 @@
     <MESSAGE value="замена @Controller на @RestController" />
     <MESSAGE value="исправлена ошибка валидатора" />
     <MESSAGE value="добавлен обработчик для ошибки валидации" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлен обработчик для ошибки валидации" />
+    <MESSAGE value="добавлен обработчик для ошибки HttpMessageNotReadableException" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавлен обработчик для ошибки HttpMessageNotReadableException" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
