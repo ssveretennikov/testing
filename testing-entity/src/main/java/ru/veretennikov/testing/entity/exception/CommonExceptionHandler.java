@@ -2,12 +2,14 @@ package ru.veretennikov.testing.entity.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.OffsetDateTime;
 
 import static java.lang.String.format;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Slf4j
@@ -24,6 +26,19 @@ public class CommonExceptionHandler {
                 .build();
         return ResponseEntity
                 .status(NOT_FOUND)
+                .body(error);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Error> handleValidationException(MethodArgumentNotValidException ex) {
+        log.error(format("Ошибка валидации: %s", ex.getMessage()), ex);
+        Error error = Error.builder()
+                .message(ex.getMessage())
+                .timestamp(OffsetDateTime.now())
+                .type(ex.getClass().getSimpleName())
+                .build();
+        return ResponseEntity
+                .status(BAD_REQUEST)
                 .body(error);
     }
 
